@@ -1,0 +1,31 @@
+<%= render 'layouts/header', title: 'Deliver Order' %>
+
+<div class="container-fluid">
+  <div class="row">
+    <% # Note: The sidebar takes up 3 cols (out of 12) %>
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col-lg-9">
+    	<% if @orders.count == 0 %>
+    		<h3>No orders to show</h3>
+    	<% else %>
+	      <table class="table table-bordered table-striped">
+	          <thead>
+	              <tr>
+	                  <th>Table id</th>
+	                  <th>Food</th>
+	                  <th>Waiter</th>
+	                  <th>Time</th>
+	                  <th>Cost</th>
+	                  <th>Delivered</th>
+	                  <th>Delete</th>
+	              </tr>
+	          </thead>
+	          <tbody>
+	              <%= render @orders %>
+	          </tbody>
+	      </table>
+	     <% end %>
+    </div>
+  </div>
+</div>

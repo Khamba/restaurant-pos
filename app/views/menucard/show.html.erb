@@ -1,0 +1,36 @@
+<%= render 'layouts/header', title: "Menu Card" %>
+
+<div class="container-fluid">
+	<div class="row">
+		<% # Note: The sidebar takes up 3 cols (out of 12) %>
+		<%= render 'layouts/sidebar' %>
+
+		<div class="col-lg-9">
+
+				<table class="table table-bordered table-hover table-striped">
+
+					<% Food.select(:type).distinct.each do |food_with_type| %>
+
+						<thead>
+	            <tr>
+	                <th colspan="2"><%= food_with_type.type %></th>
+	            </tr>
+	          </thead>
+
+	          <tbody>
+	            <% Food.all.where(type: food_with_type.type).each do |food| %>
+
+	            	
+			            <tr>
+			                <td><%= food.name %> <%= link_to edit_food_path(id: food.id) do %> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <% end %> <%= link_to food_path(id: food.id), method: :delete do %> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> <% end %></td>
+			                <td><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> <%= food.cost %></td>
+			             </tr>
+	            <% end %>	
+	           </tbody>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,28 @@
+<%= render 'layouts/header', title: 'Edit Waiter' %>
+
+<div class="container-fluid">
+	<div class="row">
+		<% # Note: The sidebar takes up 3 cols (out of 12) %>
+		<%= render 'layouts/sidebar' %>
+
+		<div class="col-lg-6">
+			<table class="table table-bordered table-striped">
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Salary</th>
+                  <th>Edit</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% @waiters.each do |waiter| %>
+              <tr>
+							  <td><%= waiter.name %></td>				  
+							  <td><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> <%= waiter.salary %></td>
+							  <td><%= link_to edit_waiter_path(id: waiter.id) do %> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <% end %></td>
+							</tr>
+						<% end %>
+          </tbody>
+		</div>
+	</div>
+</div>

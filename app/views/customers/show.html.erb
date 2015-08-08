@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'layouts/header',title: "Customer" %>
+
+<div class="container-fluid">
+	<div class="row">
+		<% # Note: The sidebar takes up 3 cols (out of 12) %>
+		<%= render 'layouts/sidebar' %>
+
+
+		<div class="col-lg-4">
+	    <table class="table table-bordered">
+	        <tbody>
+        		<tr>
+                <td>Customer id:</td>
+                <td><%= @customer.id %></td
+            </tr>
+            <tr>
+                <td>Table id:</td>
+                <td><%= @customer.table_id %></td
+            </tr>
+            <tr>
+                <td>Waiter id:</td>
+                <td><%= @customer.waiter_id %></td>
+            </tr>
+            <tr>
+                <td>Date and Time: </td>
+                <td><%= @customer.datetime.strftime("%d %b, %Y at %I:%M %p %Z") %></td>
+            </tr>
+            <% if @customer.finished_eating? %>
+            	<tr>
+                <td>Bill</td>
+                <td><%= @customer.bill = bill %></td>
+            	</tr>
+            <% else %>
+            	<tr>
+                <td colspan="2">Customer is still eating.</td>
+            	</tr>
+            <% end %>
+	        </tbody>
+	    </table>
+    </div>
+	</div>
+</div>

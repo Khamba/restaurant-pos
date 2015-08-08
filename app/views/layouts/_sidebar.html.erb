@@ -1,0 +1,44 @@
+<div class="col-lg-3 hide_in_pdf">
+    <ul class="list-group">
+        <li class="list-group-item"><%= link_to "Menu Card", menucard_path %></a></li>
+
+        <li class="list-group-item nested-list-item"><a>View Orders by</a>
+        	<ul class="list-group inner">
+        		<li class="list-group-item"><%= link_to "Time", orders_path %></li>
+        		<li class="list-group-item"><%= link_to "Table", index_by_table_path %></li>
+        		<li class="list-group-item"><%= link_to "Waiter", index_by_waiter_path %></li>
+        		<li class="list-group-item"><%= link_to "Food", index_by_food_path %></li>
+        	</ul>
+        </li>
+
+        <li class="list-group-item nested-list-item"><a>Add</a>
+        	<ul class="list-group inner">
+        		<li class="list-group-item"><%= link_to "Customer", new_customer_path %></li>
+        		<li class="list-group-item"><%= link_to "Order", new_order_path %></li>
+                <li class="list-group-item"><%= link_to "Table", new_table_path %></li>
+                <li class="list-group-item"><%= link_to "Food", new_food_path %></li>
+                <li class="list-group-item"><%= link_to "Waiter", new_waiter_path %></li>
+        	</ul>
+        </li>
+
+        <li class="list-group-item nested-list-item"><a>Actions</a>
+            <ul class="list-group inner">
+                <li class="list-group-item"><%= link_to "Deliver Order", order_deliver_select_path %></li>
+                <li class="list-group-item"><%= link_to "Customer left", customer_leave_select_path %></li>
+            </ul>
+        </li>
+
+        <li class="list-group-item"><%= link_to "Generate Bill", select_customer_path %></li>
+
+        <li class="list-group-item"><%= link_to "Reports", reports_path %></li>
+
+        <li class="list-group-item nested-list-item"><a>Edit/Delete</a>
+            <ul class="list-group inner">
+                <li class="list-group-item"><%= link_to "Edit waiter", edit_waiter_select_path %></li>
+                <li class="list-group-item"><%= link_to "Delete waiter", delete_waiter_select_path %></li>
+                <li class="list-group-item"><%= link_to "Delete table", delete_table_select_path %></li>
+            </ul>
+        </li>   
+
+    </ul>
+</div>

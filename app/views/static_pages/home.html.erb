@@ -1,0 +1,19 @@
+<%= render 'layouts/header', title: 'Log In' %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-5">
+    	<%= bootstrap_form_tag(url: login_path, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8") do |f| %>
+
+			  <%= f.text_field :username %>
+
+			  <%= f.password_field :password %>
+
+			  <%= f.form_group do %>
+			    <%= f.submit "Submit" %>
+			  <% end %>
+			<% end %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<%= render 'layouts/header', title: 'Bill' %>
+
+<div class="container-fluid">
+	<div class="row">
+		<% # Note: The sidebar takes up 3 cols (out of 12) %>
+		<%= render 'layouts/sidebar' %>
+
+		<div class="col-lg-7">
+
+            <h3>Total bill: <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> <%= @customer.bill %></h3>
+			<h4><%= @customer.datetime.strftime("%d %B, %Y %I:%M %p") %></h4><br>
+
+    		<table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Order Name</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<% @customer.orders.each do |order| %>
+                    <tr>
+                        <td><%= order.food.name %></td>
+                        <td><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> <%= order.cost %></td>
+                    </tr>
+                   <% end %>
+                </tbody>
+        	</table>
+            <br><br>
+		</div>
+
+        <%= link_to "<button type='"'button'"' class='"'btn btn-info pull-right'"'>Generate PDF</button>".html_safe, pdf_url %>
+
+	</div>
+</div>

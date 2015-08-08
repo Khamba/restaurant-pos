@@ -1,0 +1,12 @@
+<%= bootstrap_form_for(@food, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8") do |f| %>
+
+  <%= f.text_field :name %>
+
+  <%= f.text_field :cost, { label: "Cost (<span class='"'glyphicon glyphicon-usd'"' aria-hidden='"'true'"'></span> )".html_safe } %>
+
+  <%= f.text_field :type %>
+
+  <%= f.form_group do %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

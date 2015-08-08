@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  food_id: 1
+  drink_id: 1
+  table_id: 1
+  customer_id: 1
+
+two:
+  food_id: 1
+  drink_id: 1
+  table_id: 1
+  customer_id: 1

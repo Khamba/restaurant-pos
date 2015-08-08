@@ -1,0 +1,27 @@
+<%= render 'layouts/header', title: 'Orders by time' %>
+
+<div class="container-fluid">
+  <div class="row">
+    <% # Note: The sidebar takes up 3 cols (out of 12) %>
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col-lg-9">
+      <table class="table table-bordered table-striped">
+          <thead>
+              <tr>
+                  <th>Table id</th>
+                  <th>Food</th>
+                  <th>Waiter</th>
+                  <th>Time</th>
+                  <th>Cost</th>
+                  <th>Delivered</th>
+                  <th>Delete</th>
+              </tr>
+          </thead>
+          <tbody>
+              <%= render @orders %>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>

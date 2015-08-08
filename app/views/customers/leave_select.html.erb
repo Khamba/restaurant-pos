@@ -1,0 +1,35 @@
+<%= render 'layouts/header', title: 'Customer left' %>
+
+<div class="container-fluid">
+  <div class="row">
+    <% # Note: The sidebar takes up 3 cols (out of 12) %>
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col-lg-7">
+    	<% if @customers.count == 0 %>
+    		<h3>No customers to show</h3>
+    	<% else %>
+	      <table class="table table-bordered table-striped">
+	          <thead>
+	              <tr>
+	                  <th>Table id</th>
+	                  <th>Waiter</th>
+	                  <th>Time</th>
+	                  <th></th>
+	              </tr>
+	          </thead>
+	          <tbody>
+	          	<% @customers.each do |customer| %>
+	              <tr>
+								  <td><%= customer.table_id %></td>
+								  <td><%= customer.waiter.name %></td>				  
+								  <td><%= time_ago_in_words(customer.datetime) %> ago</td>
+								  <td><%= link_to customer_leave_path(id: customer.id), method: :post do %> Leave <% end %></td>
+								</tr>
+							<% end %>
+	          </tbody>
+	      </table>
+	     <% end %>
+    </div>
+  </div>
+</div>

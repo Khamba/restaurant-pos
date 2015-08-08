@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  table_id: 1
+  datetime: 2015-08-04 10:19:55
+  bill: 1
+  waiter_id: 1
+  finished_eating: false
+
+two:
+  table_id: 1
+  datetime: 2015-08-04 10:19:55
+  bill: 1
+  waiter_id: 1
+  finished_eating: false

@@ -1,0 +1,15 @@
+<tr>
+  <td><%= order.table_id %></td>
+  <td><%= order.food.name %></td>
+  <td><%= order.waiter.name %></td>
+  <td><%= time_ago_in_words(order.time) %> ago</td>
+  <td><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> <%= order.cost %></td>
+  <td>
+  	<% if order.delivered? %>
+  		Yes
+  	<% else %>
+  		<u>No</u><sub><%= link_to "Click to deliver", deliver_order_path(id: order.id) ,method: :post %></sub>
+  	<% end %>
+  </td>
+  <td><%= link_to order_path(id: order.id), method: :delete do %> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> <% end %></td>
+</tr>

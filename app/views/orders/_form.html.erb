@@ -1,0 +1,10 @@
+<%= bootstrap_form_for(@order, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8") do |f| %>
+
+  <%= f.select :food_id, Food.all.order(:name).map { |e| [e.name, e.id] }, { label: "Food ordered", prompt: "Food name" } %>
+
+  <%= f.select :table_id, Table.where(occupied: true).order(:id).map { |e| [e.id, e.id] }, { prompt: "Table id" } %>
+
+  <%= f.form_group do %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

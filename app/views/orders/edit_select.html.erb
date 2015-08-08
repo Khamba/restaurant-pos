@@ -1,0 +1,21 @@
+<%= render 'layouts/header', title: 'Orders by waiter' %>
+
+<div class="container-fluid">
+  <div class="row">
+    <% # Note: The sidebar takes up 3 cols (out of 12) %>
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col-lg-9">
+
+      <%= bootstrap_form_tag(url: edit_order_path, method: :get, layout: :horizontal, label_col: "col-lg-3", control_col: "col-lg-3") do |f| %>
+
+        <%= f.select :order_id, Order.all.order("time DESC").map { |e| [e.id, e.id] }, { prompt: "Select waiter", label: "Waiter to show orders of" } %>
+
+        <%= f.form_group do %>
+          <%= f.submit "Show orders" %>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

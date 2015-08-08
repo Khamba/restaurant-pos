@@ -1,0 +1,54 @@
+<%= render 'layouts/header', title: 'Waiter Reports' %>
+
+<div class="container-fluid">
+  <div class="row">
+    <% # Note: The sidebar takes up 3 cols (out of 12) %>
+    <%= render 'layouts/sidebar' %>
+
+    <div class="col-lg-9">
+
+      <div class="col-lg-5">
+
+          <%= bootstrap_form_tag url: waiter_reports_path, method: :get do |f| %>
+
+            <%= f.select :waiter_id, Waiter.all.order(:name).map { |e| [e.name, e.id] }, { prompt: "Choose a waiter" } %>  
+
+            <%= f.number_field :days, { label: "How many days should the report go back to? ", min: 1 } %>
+
+          <%= f.submit %>
+
+        <% end %>
+        <br><br>
+
+        Total earnings:
+      <% e = 0 %>
+      <% @orders.each do |order| %>
+        <% e += order.cost %>
+      <% end %>
+      <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> <%= e %><br><br>
+
+      </div>
+
+      <table class="table table-bordered table-striped">
+          <thead>
+              <tr>
+                  <th>Table id</th>
+                  <th>Food</th>
+                  <th>Waiter</th>
+                  <th>Time</th>
+                  <th>Cost</th>
+                  <th>Delivered</th>
+                  <th>Delete</th>
+              </tr>
+          </thead>
+          <tbody>
+              <%= render @orders %>
+          </tbody>
+      </table>
+      <br><br>
+    </div>
+
+    <%= link_to "<button type='"'button'"' class='"'btn btn-info pull-right'"'>Generate PDF</button>".html_safe, pdf_url %>
+
+  </div>
+</div>
