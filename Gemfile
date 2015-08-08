@@ -49,3 +49,6 @@ gem 'validates_timeliness'
 gem 'bootstrap_form'
 gem "pdfkit"
 gem "wkhtmltopdf-binary"
+
+gem 'rails_12factor', group: :production
+gem 'pg', group: :production
