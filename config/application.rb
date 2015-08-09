@@ -23,6 +23,5 @@ module CrossoverRestaurant
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    middleware.use "PDFKit::Middleware", :print_media_type => true
   end
 end
