@@ -49,6 +49,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'validates_timeliness'
 gem 'bootstrap_form'
+gem 'twitter-bootstrap-rails'
 
 gem 'rails_12factor', group: :production
 gem 'pg', group: :production
